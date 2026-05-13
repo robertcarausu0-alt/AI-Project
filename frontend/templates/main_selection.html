@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Explorer - Topics</title>
+    <meta name="description" content="Choose an AI topic: what makes AI unique, why it's useful, pros and cons, and where it's used.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/main_menu" class="logo"><span class="logo-dot"></span> AI Explorer</a>
+        <div class="nav-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection" class="active">Topics</a>
+            <a href="/AI_unique">What Makes AI Unique</a>
+            <a href="/AI_useful">Why It's Useful</a>
+            <a href="/pros_cons">Pros &amp; Cons</a>
+            <a href="/Where_AI_used">Where It's Used</a>
+            <a href="/" class="nav-cta">Try AI Chat</a>
+        </div>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <div class="breadcrumb">
+                <a href="/main_menu">Home</a>
+                <span>/</span>
+                <span>Topics</span>
+            </div>
+            <h1>AI Topics</h1>
+            <p>Pick any topic below to learn more about Artificial Intelligence — from what makes it special to where it's already changing the world.</p>
+        </header>
+
+        <section class="content">
+            <div class="selection-grid">
+                <a href="/AI_unique" class="selection-card">
+                    <div class="topic-num">Topic 01</div>
+                    <h2>What Makes AI Unique</h2>
+                    <p>Explore the six core traits that set AI apart: connectivity, embedded sensors, data processing, cloud integration, automation, and security.</p>
+                    <span class="selection-arrow">Read more →</span>
+                </a>
+                <a href="/AI_useful" class="selection-card">
+                    <div class="topic-num">Topic 02</div>
+                    <h2>Why AI Is Useful</h2>
+                    <p>Real examples of how AI helps in smart homes, healthcare, industrial settings and transportation — making life easier and safer.</p>
+                    <span class="selection-arrow">Read more →</span>
+                </a>
+                <a href="/pros_cons" class="selection-card">
+                    <div class="topic-num">Topic 03</div>
+                    <h2>Pros &amp; Cons of AI</h2>
+                    <p>A balanced and honest look at the benefits AI brings to society alongside the real risks, ethical concerns, and downsides.</p>
+                    <span class="selection-arrow">Read more →</span>
+                </a>
+                <a href="/Where_AI_used" class="selection-card">
+                    <div class="topic-num">Topic 04</div>
+                    <h2>Where Is AI Used?</h2>
+                    <p>From farms and factories to smart cities and hospitals — the six industries currently being transformed by artificial intelligence.</p>
+                    <span class="selection-arrow">Read more →</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-left">AI Explorer</span>
+        <div class="footer-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/">Try AI</a>
+        </div>
+    </footer>
+
+</body>
+</html>

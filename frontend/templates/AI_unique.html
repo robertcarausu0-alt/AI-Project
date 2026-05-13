@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Explorer - What Makes AI Unique</title>
+    <meta name="description" content="Discover the six core capabilities that make Artificial Intelligence unique.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/main_menu" class="logo"><span class="logo-dot"></span> AI Explorer</a>
+        <div class="nav-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/AI_unique" class="active">What Makes AI Unique</a>
+            <a href="/AI_useful">Why It's Useful</a>
+            <a href="/pros_cons">Pros &amp; Cons</a>
+            <a href="/Where_AI_used">Where It's Used</a>
+            <a href="/" class="nav-cta">Try AI Chat</a>
+        </div>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <div class="breadcrumb">
+                <a href="/main_menu">Home</a>
+                <span>/</span>
+                <a href="/main_selection">Topics</a>
+                <span>/</span>
+                <span>What Makes AI Unique</span>
+            </div>
+            <h1>What Makes AI Unique</h1>
+            <p>Artificial Intelligence has six core traits that no other technology has ever combined — here's what makes it genuinely different.</p>
+        </header>
+
+        <section class="content">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Connectivity</h3>
+                    <p>AI connects with many different devices simultaneously — enabling advanced robotic surgery, satellite imagery analysis, and even linking the human brain to machines through neural interfaces.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📡</div>
+                    <h3>Embedded Sensors</h3>
+                    <p>By using embedded sensors, AI can gather real-world data — temperature, motion, faces — building awareness of the physical environment to drive smarter, automated decisions.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🧮</div>
+                    <h3>Data Processing</h3>
+                    <p>AI processes enormous volumes of data at a speed no human analyst can match — spotting patterns, trends, and insights that would otherwise go unnoticed.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud Integration</h3>
+                    <p>Connected to the cloud, AI can store virtually unlimited data, scale to global demand instantly, and share knowledge across distributed systems in real time.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Automation</h3>
+                    <p>AI enables systems to act on their own — from self-driving cars that brake for pedestrians to smart factories that self-regulate production quality without human input.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security &amp; Learning</h3>
+                    <p>Modern AI continuously learns from new data, adapts to evolving threats, and uses encryption and anomaly-detection to protect data in transit and at rest.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="page-nav">
+        <a href="/main_selection" class="btn-sm btn-ghost">← Back to Topics</a>
+        <a href="/AI_useful" class="btn-sm btn-blue">Next: Why AI Is Useful →</a>
+    </div>
+
+    <footer>
+        <span class="footer-left">AI Explorer</span>
+        <div class="footer-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/">Try AI</a>
+        </div>
+    </footer>
+
+</body>
+</html>

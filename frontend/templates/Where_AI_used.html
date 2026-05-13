@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Explorer - Where AI Is Used</title>
+    <meta name="description" content="Explore the industries being transformed by AI — from smart homes and healthcare to agriculture and smart cities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/main_menu" class="logo"><span class="logo-dot"></span> AI Explorer</a>
+        <div class="nav-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/AI_unique">What Makes AI Unique</a>
+            <a href="/AI_useful">Why It's Useful</a>
+            <a href="/pros_cons">Pros &amp; Cons</a>
+            <a href="/Where_AI_used" class="active">Where It's Used</a>
+            <a href="/" class="nav-cta">Try AI Chat</a>
+        </div>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <div class="breadcrumb">
+                <a href="/main_menu">Home</a>
+                <span>/</span>
+                <a href="/main_selection">Topics</a>
+                <span>/</span>
+                <span>Where AI Is Used</span>
+            </div>
+            <h1>Where AI Is Used</h1>
+            <p>From your living room to agricultural fields — AI is already embedded in six major sectors that shape everyday life around the world.</p>
+        </header>
+
+        <section class="content-wide">
+            <div class="where-grid">
+                <div class="where-card">
+                    <div class="where-header">
+                        <span class="where-icon">🏠</span>
+                        <h3>Smart Home</h3>
+                    </div>
+                    <ul class="where-list">
+                        <li>Smart thermostats and lighting</li>
+                        <li>Voice-controlled AI assistants</li>
+                        <li>Security cameras and smart locks</li>
+                        <li>Automated appliances</li>
+                    </ul>
+                </div>
+                <div class="where-card">
+                    <div class="where-header">
+                        <span class="where-icon">❤️</span>
+                        <h3>Healthcare</h3>
+                    </div>
+                    <ul class="where-list">
+                        <li>Wearable health trackers</li>
+                        <li>Remote patient monitoring</li>
+                        <li>AI-powered diagnostics</li>
+                        <li>Telemedicine and drug discovery</li>
+                    </ul>
+                </div>
+                <div class="where-card">
+                    <div class="where-header">
+                        <span class="where-icon">🏭</span>
+                        <h3>Industrial</h3>
+                    </div>
+                    <ul class="where-list">
+                        <li>Predictive maintenance</li>
+                        <li>Supply chain tracking</li>
+                        <li>Automated quality control</li>
+                        <li>Smart energy management</li>
+                    </ul>
+                </div>
+                <div class="where-card">
+                    <div class="where-header">
+                        <span class="where-icon">🚗</span>
+                        <h3>Transportation</h3>
+                    </div>
+                    <ul class="where-list">
+                        <li>Autonomous vehicles</li>
+                        <li>Fleet and logistics tracking</li>
+                        <li>AI-powered traffic monitoring</li>
+                        <li>Smart parking guidance</li>
+                    </ul>
+                </div>
+                <div class="where-card">
+                    <div class="where-header">
+                        <span class="where-icon">🌱</span>
+                        <h3>Agriculture</h3>
+                    </div>
+                    <ul class="where-list">
+                        <li>AI-assisted crop monitoring</li>
+                        <li>Smart irrigation systems</li>
+                        <li>Livestock health tracking</li>
+                        <li>Weather and yield prediction</li>
+                    </ul>
+                </div>
+                <div class="where-card">
+                    <div class="where-header">
+                        <span class="where-icon">🏙️</span>
+                        <h3>Smart Cities</h3>
+                    </div>
+                    <ul class="where-list">
+                        <li>Adaptive street lighting</li>
+                        <li>AI-optimised waste management</li>
+                        <li>Real-time air quality monitoring</li>
+                        <li>Predictive public safety systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="page-nav">
+        <a href="/pros_cons" class="btn-sm btn-ghost">← Pros &amp; Cons</a>
+        <a href="/" class="btn-sm btn-blue">Try the AI Chat →</a>
+    </div>
+
+    <footer>
+        <span class="footer-left">AI Explorer</span>
+        <div class="footer-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/">Try AI</a>
+        </div>
+    </footer>
+
+</body>
+</html>

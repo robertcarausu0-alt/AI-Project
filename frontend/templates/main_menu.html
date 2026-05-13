@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Explorer - Home</title>
+    <meta name="description" content="A straightforward guide to Artificial Intelligence — what it is, where it's used, and how to try it yourself.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/main_menu" class="logo"><span class="logo-dot"></span> AI Explorer</a>
+        <div class="nav-links">
+            <a href="/main_menu" class="active">Home</a>
+            <a href="/AI_unique">What Makes AI Unique</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/AI_useful">Why It's Useful</a>
+            <a href="/pros_cons">Pros &amp; Cons</a>
+            <a href="/Where_AI_used">Where It's Used</a>
+            <a href="/" class="nav-cta">Try AI Chat</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Understanding<br><em>Artificial Intelligence</em></h1>
+            <p>A clear, straightforward guide to what AI is, how it works, where it's being used today, and what it means for the future.</p>
+            <div class="hero-actions">
+                <a href="/main_selection" class="btn btn-blue">Browse Topics</a>
+                <a href="/" class="btn btn-outline">Try the AI Chat</a>
+            </div>
+        </section>
+
+        <div class="highlights">
+            <div class="highlight-item">
+                <div class="highlight-num">4</div>
+                <div class="highlight-label">Topics Covered</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-num">6</div>
+                <div class="highlight-label">Industries Explored</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-num">1</div>
+                <div class="highlight-label">Live AI Chatbot</div>
+            </div>
+        </div>
+
+        <section class="topics-section">
+            <p class="section-label">What's inside</p>
+            <h2 class="section-heading">Four Topics to Explore</h2>
+            <div class="cards-grid">
+                <a href="/AI_unique" class="topic-card">
+                    <div class="topic-icon">⚡</div>
+                    <h3>What Makes AI Unique</h3>
+                    <p>The six core traits that set Artificial Intelligence apart — from self-learning to connectivity and automation.</p>
+                    <span class="topic-link">Read more →</span>
+                </a>
+                <a href="/AI_useful" class="topic-card">
+                    <div class="topic-icon">💡</div>
+                    <h3>Why AI Is Useful</h3>
+                    <p>How AI is improving life in smart homes, hospitals, factories, and on the roads — with real examples.</p>
+                    <span class="topic-link">Read more →</span>
+                </a>
+                <a href="/pros_cons" class="topic-card">
+                    <div class="topic-icon">⚖️</div>
+                    <h3>Pros &amp; Cons</h3>
+                    <p>A balanced, honest look at the benefits AI brings and the genuine risks and concerns it raises.</p>
+                    <span class="topic-link">Read more →</span>
+                </a>
+                <a href="/Where_AI_used" class="topic-card">
+                    <div class="topic-icon">🌍</div>
+                    <h3>Where AI Is Used</h3>
+                    <p>From agriculture and healthcare to smart cities — the industries being transformed by AI right now.</p>
+                    <span class="topic-link">Read more →</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <h2>Try a real AI conversation</h2>
+            <p>Don't just read about it — chat with a live AI assistant powered by Llama 3.2, running locally on Ollama.</p>
+            <a href="/" class="btn btn-white">Open AI Chat</a>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-left">AI Explorer</span>
+        <div class="footer-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/">Try AI</a>
+        </div>
+    </footer>
+
+</body>
+</html>

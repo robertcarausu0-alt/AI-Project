@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Explorer - Chat with AI</title>
+    <meta name="description" content="Have a live conversation with an AI assistant powered by Llama 3.2 via Ollama.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body class="chat-page">
+
+    <nav class="navbar">
+        <a href="/main_menu" class="logo"><span class="logo-dot"></span> AI Explorer</a>
+        <div class="nav-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/AI_unique">What Makes AI Unique</a>
+            <a href="/AI_useful">Why It's Useful</a>
+            <a href="/pros_cons">Pros &amp; Cons</a>
+            <a href="/Where_AI_used">Where It's Used</a>
+            <a href="/" class="nav-cta active">Try AI Chat</a>
+        </div>
+    </nav>
+
+    <div class="chat-outer">
+        <div class="chat-panel">
+
+            <div class="chat-header">
+                <div class="bot-avatar">🤖</div>
+                <div class="bot-meta">
+                    <h2>AI Assistant</h2>
+                    <p><span class="status-dot"></span> Powered by Llama 3.2 via Ollama</p>
+                </div>
+            </div>
+
+            <div id="chat-messages">
+                <div class="welcome" id="welcome-screen">
+                    <div class="welcome-icon">🤖</div>
+                    <h3>Hi, I'm your AI assistant.</h3>
+                    <p>Ask me anything — about AI, technology, science, or anything else you're curious about.</p>
+                    <div class="chips">
+                        <span class="chip" onclick="sendSuggestion('What is Artificial Intelligence?')">What is AI?</span>
+                        <span class="chip" onclick="sendSuggestion('How does machine learning work?')">How does ML work?</span>
+                        <span class="chip" onclick="sendSuggestion('What are the main risks of AI?')">Risks of AI?</span>
+                        <span class="chip" onclick="sendSuggestion('Give me a fun fact about AI')">Fun fact about AI</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <textarea
+                    id="user-input"
+                    rows="1"
+                    placeholder="Type a message…"
+                    onkeydown="handleKey(event)"
+                    oninput="autoResize(this)"
+                ></textarea>
+                <button class="icon-btn" id="voice-btn" onclick="startVoice()" title="Voice input">🎤</button>
+                <button class="icon-btn" id="stop-btn" onclick="stopSpeaking()" title="Stop speaking" style="display:none;">🔇</button>
+                <button class="icon-btn" id="send-btn" onclick="sendMessage()" title="Send">➤</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function autoResize(el) {
+            el.style.height = 'auto';
+            el.style.height = Math.min(el.scrollHeight, 110) + 'px';
+        }
+
+        function handleKey(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function sendSuggestion(text) {
+            document.getElementById('user-input').value = text;
+            sendMessage();
+        }
+
+        let recognition = null;
+        try {
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.continuous = false;
+        } catch(e) {}
+
+        function startVoice() {
+            if (!recognition) {
+                addMessage('Voice input is not supported in this browser.', 'error');
+                return;
+            }
+            document.getElementById('voice-btn').classList.add('recording');
+            document.getElementById('voice-btn').textContent = '🔴';
+            recognition.start();
+        }
+
+        if (recognition) {
+            recognition.onresult = function(e) {
+                document.getElementById('voice-btn').classList.remove('recording');
+                document.getElementById('voice-btn').textContent = '🎤';
+                document.getElementById('user-input').value = e.results[0][0].transcript;
+                sendMessage();
+            };
+            recognition.onerror = function() {
+                document.getElementById('voice-btn').classList.remove('recording');
+                document.getElementById('voice-btn').textContent = '🎤';
+            };
+        }
+
+        function stopSpeaking() {
+            speechSynthesis.cancel();
+            document.getElementById('stop-btn').style.display = 'none';
+        }
+
+        async function sendMessage() {
+            const input   = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+            const stopBtn = document.getElementById('stop-btn');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const welcome = document.getElementById('welcome-screen');
+            if (welcome) welcome.remove();
+
+            input.value = '';
+            input.style.height = 'auto';
+            input.disabled = true;
+            sendBtn.disabled = true;
+
+            addMessage(message, 'user');
+            const thinking = addMessage('Thinking…', 'thinking');
+
+            try {
+                const res  = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+                const data = await res.json();
+                thinking.remove();
+                addMessage(data.reply, 'ai');
+                try {
+                    const utterance = new SpeechSynthesisUtterance(data.reply);
+                    utterance.onend = function() {
+                        stopBtn.style.display = 'none';
+                    };
+                    utterance.onerror = function() {
+                        stopBtn.style.display = 'none';
+                    };
+                    speechSynthesis.cancel(); 
+                    speechSynthesis.speak(utterance);
+                    stopBtn.style.display = '';
+                } catch(e) {}
+            } catch(err) {
+                thinking.remove();
+                addMessage('Could not reach the server. Is the Flask app running?', 'error');
+            }
+
+            input.disabled = false;
+            sendBtn.disabled = false;
+            input.focus();
+        }
+
+        function addMessage(text, type) {
+            const container = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = 'message ' + type;
+            div.textContent = text;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            return div;
+        }
+    </script>
+
+</body>
+</html>

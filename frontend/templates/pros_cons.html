@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Explorer - Pros &amp; Cons</title>
+    <meta name="descrition" content="A balanced look at the advantages and disadvantages of Artificial Intelligence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/main_menu" class="logo"><span class="logo-dot"></span> AI Explorer</a>
+        <div class="nav-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/AI_unique">What Makes AI Unique</a>
+            <a href="/AI_useful">Why It's Useful</a>
+            <a href="/pros_cons" class="active">Pros &amp; Cons</a>
+            <a href="/Where_AI_used">Where It's Used</a>
+            <a href="/" class="nav-cta">Try AI Chat</a>
+        </div>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <div class="breadcrumb">
+                <a href="/main_menu">Home</a>
+                <span>/</span>
+                <a href="/main_selection">Topics</a>
+                <span>/</span>
+                <span>Pros &amp; Cons</span>
+            </div>
+            <h1>Pros &amp; Cons of AI</h1>
+            <p>Artificial Intelligence has a lot to offer — but it also brings real risks. Here's a fair and balanced overview of both sides.</p>
+        </header>
+
+        <section class="content">
+            <div class="pc-grid">
+                <div class="pc-card pros-card">
+                    <div class="pc-card-header">
+                        <span style="font-size:1.3rem">✅</span>
+                        <h2>Advantages</h2>
+                    </div>
+                    <ul class="pc-list">
+                        <li><span class="pc-marker">+</span> Increased efficiency and automation of repetitive tasks</li>
+                        <li><span class="pc-marker">+</span> Real-time monitoring and intelligent data collection</li>
+                        <li><span class="pc-marker">+</span> Cost savings through predictive maintenance</li>
+                        <li><span class="pc-marker">+</span> Better decision-making powered by data analytics</li>
+                        <li><span class="pc-marker">+</span> Improved convenience and quality of life</li>
+                        <li><span class="pc-marker">+</span> Sustainable resource management</li>
+                    </ul>
+                </div>
+                <div class="pc-card cons-card">
+                    <div class="pc-card-header">
+                        <span style="font-size:1.3rem">⚠️</span>
+                        <h2>Disadvantages</h2>
+                    </div>
+                    <ul class="pc-list">
+                        <li><span class="pc-marker">–</span> Security and privacy risks from data collection</li>
+                        <li><span class="pc-marker">–</span> High setup, infrastructure, and maintenance costs</li>
+                        <li><span class="pc-marker">–</span> Complex integration with existing systems</li>
+                        <li><span class="pc-marker">–</span> Dependence on stable internet connectivity</li>
+                        <li><span class="pc-marker">–</span> Data overload and algorithmic bias challenges</li>
+                        <li><span class="pc-marker">–</span> Potential job displacement due to automation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="page-nav">
+        <a href="/AI_useful" class="btn-sm btn-ghost">← Why AI Is Useful</a>
+        <a href="/Where_AI_used" class="btn-sm btn-blue">Next: Where AI Is Used →</a>
+    </div>
+
+    <footer>
+        <span class="footer-left">AI Explorer</span>
+        <div class="footer-links">
+            <a href="/main_menu">Home</a>
+            <a href="/main_selection">Topics</a>
+            <a href="/">Try AI</a>
+        </div>
+    </footer>
+
+</body>
+</html>
